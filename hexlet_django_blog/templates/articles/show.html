@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+     <h1>{{ article.name }}</h1>
+    <div>{{ article.body }}</div>
+<p><a href="{% url 'articles_update' article.id %}">Редактировать статью</a> </p>
+<form action="{% url 'articles_delete' article.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Удалить статью">
+</form>
+{% endblock %}
